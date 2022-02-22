@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+<meta charset="UTF-8">
+<!--link rel="stylesheet" href="css/style.css" /-->
+
+<style>
+  .square {
+    border: 1px;
+    stroke: black;
+  }
+</style>
+
+<script src="js/d3.v6.js"></script>
+<script src="data/challenge.js"></script>
+
+<script src="scripts/sudoku.js"></script>
+
+<svg></svg>
+
+<script>
+
+
+  var svg = d3.select("svg")
+    .attr('width', svgSize.width)
+    .attr('height', svgSize.height);
+
+  var board = new Board(QTY, challenge)
+  updatePaths(board)
+
+  redrawBoard(board, svg);
+  redrawForces(board)
+  //moveNodes(board);
+
+  setInterval(function () {
+    if (!board.fail) {
+      updateForces(board);
+      updatePaths(board)
+      if (board.fail) { window.alert("board failed") }
+      setTimeout(function () {
+        redrawBoard(board, svg);
+        redrawForces(board)
+      }, 2 * moveTime)
+
+    }
+
+  }, 4 * moveTime)
+
+</script>
+
+</html>

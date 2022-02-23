@@ -35,6 +35,13 @@ Backtrack to last move
 
 Notice there are two maroon in one row.  The solver does not catch that, but continues
 
+### Bad Working Example with 4x4 and choice
+![4x4 Example](./images/4x4Example.gif)
+
+### Bad Working Example with 5x5 and choice
+![5x5 Example](./images/5x5Example.gif)
+
+
 ## This is an older version
 
 I have not included the code for the nodes to move because the logic is broken.  But this is the effect I would like to have
